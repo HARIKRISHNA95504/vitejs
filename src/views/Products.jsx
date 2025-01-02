@@ -13,7 +13,9 @@ function Products(){
                 "5000 mAh Lithium Ion Battery",
                 "Exynos 1330 Processor",
                 "1 Year Manufacturer Warranty for Device and 6 Months Manufacturer Warranty for In-Box Accessories"
-            ]
+            ],
+            category:"mobiles",
+            inStock:false
         },
         {
             id:2,
@@ -170,15 +172,16 @@ function Products(){
                 <p className="text-white cursor-pointer ">More</p>
                 <p className="text-white cursor-pointer">Cart</p>
             </div>
-            <div className="flex justify-between pt-5 border-b-2 pb-2 " >
+            {products.map((product)=>(
+                <div className="flex justify-between pt-5 border-b-2 pb-2 " >
                 <div className="w-1/4 pl-5 ">
-                    <img src={products[0].imgSrc}/>
+                    <img src={product.imgSrc}/>
                 </div>
                 <div className="w-2/4">
-                    <p className="font-semibold text-lg ">{products[0].name}</p>
-                    <p className="text-gray-400 font-semibold text-lg"><span className="rounded text-white bg-green-500 px-2.5 mr-2">4.2</span>{products[0].rating}</p>
+                    <p className="font-semibold text-lg ">{product.name}</p>
+                    <p className="text-gray-400 font-semibold text-lg"><span className="rounded text-white bg-green-500 px-2.5 mr-2">4.2</span>{product.rating}</p>
                     <ul className=" pt-4">
-                        {products[0].specifications.map(specification =>(
+                        {product.specifications.map(specification =>(
                             <li key={specification}>{specification}</li>
 
                         ))}
@@ -186,70 +189,11 @@ function Products(){
                     </ul>
                 </div>
                 <div className="w-1/4">
-                    <p className="font-semibold ">{products[0].price}</p>
-                    <button className="rounded bg-blue-600 text-white font-semibold text-lg px-3 py-1 mt-2" onClick={()=>AddToCart(products)}>AddtoCart</button>
+                    <p className="font-semibold ">{product.price}</p>
+                    <button className="rounded bg-blue-600 text-white font-semibold text-lg px-3 py-1 mt-2" onClick={()=>AddToCart(product)}>AddtoCart</button>
                 </div>
             </div>
-            <div className="flex justify-between pt-5 border-b-2 pb-2" >
-                <div className="w-1/4 pl-5 ">
-                    <img src={products[1].imgSrc}/>
-                </div>
-                <div className="w-2/4">
-                    <p className="font-semibold text-lg ">{products[1].name}</p>
-                    <p className="text-gray-400 font-semibold text-lg"><span className="rounded text-white bg-green-500 px-2.5 mr-2">4.2</span>{products[1].rating}</p>
-                    <ul className=" pt-4">
-                        {products[1].specifications.map(specification =>(
-                            <li key={specification}>{specification}</li>
-
-                        ))}
-
-                    </ul>
-                </div>
-                <div className="w-1/4">
-                    <p className="font-semibold ">{products[1].price}</p>
-                    <button className="rounded bg-blue-600 text-white font-semibold text-lg px-3 py-1 mt-2" onClick={()=>AddToCart(products)}>AddtoCart</button>
-                </div>
-            </div>
-            <div className="flex justify-between pt-5 border-b-2 pb-2 " >
-                <div className="w-1/4 pl-5 ">
-                    <img src={products[2].imgSrc}/>
-                </div>
-                <div className="w-2/4">
-                    <p className="font-semibold text-lg ">{products[2].name}</p>
-                    <p className="text-gray-400 font-semibold text-lg"><span className="rounded text-white bg-green-500 px-2.5 mr-2">4.2</span>{products[2].rating}</p>
-                    <ul className=" pt-4">
-                        {products[2].specifications.map(specification =>(
-                            <li key={specification}>{specification}</li>
-
-                        ))}
-
-                    </ul>
-                </div>
-                <div className="w-1/4">
-                    <p className="font-semibold ">{products[2].price}</p>
-                    <button className="rounded bg-blue-600 text-white font-semibold text-lg px-3 py-1 mt-2" onClick={()=>AddToCart(products)}>AddtoCart</button>
-                </div>
-            </div>
-            <div className="flex justify-between pt-5 border-b-2 pb-2 " >
-                <div className="w-1/4 pl-5 ">
-                    <img src={products[3].imgSrc}/>
-                </div>
-                <div className="w-2/4">
-                    <p className="font-semibold text-lg ">{products[3].name}</p>
-                    <p className="text-gray-400 font-semibold text-lg"><span className="rounded text-white bg-green-500 px-2.5 mr-2">4.2</span>{products[3].rating}</p>
-                    <ul className=" pt-4">
-                        {products[3].specifications.map(specification =>(
-                            <li key={specification}>{specification}</li>
-
-                        ))}
-
-                    </ul>
-                </div>
-                <div className="w-1/4">
-                    <p className="font-semibold ">{products[3].price}</p>
-                    <button className="rounded bg-blue-600 text-white font-semibold text-lg px-3 py-1 mt-2" onClick={()=>AddToCart(products)}>AddtoCart</button>
-                </div>
-            </div>
+            ))}
         </div>
     )
 }
